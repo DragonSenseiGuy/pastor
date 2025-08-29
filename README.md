@@ -59,7 +59,7 @@ Can create multiple users like this. You CANNOT use other servers as this is a l
 
 For it to open on pastor.local do this:
 
-macOS/linux:
+macOS:
 open `/etc/hosts`
 do `sudo nano /etc/hosts` and then
 Add:
@@ -70,6 +70,18 @@ Save and exit. Then flush DNS cache:
 sudo dscacheutil -flushcache
 sudo killall -HUP mDNSResponder
 ```
+
+Linux:
+open `/etc/hosts`
+do `sudo nano /etc/hosts` and then
+Add:
+<laptop-ip> pastor.local
+
+Save and exit. Then flush DNS cache:
+```
+sudo systemctl restart systemd-resolved
+```
+
 Windows:
 Open Notepad as Administrator.
 Open file `C:\Windows\System32\drivers\etc\hosts`
