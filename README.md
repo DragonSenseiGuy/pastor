@@ -55,3 +55,25 @@ Login with test / testpass123
 
 
 Can create multiple users like this. You CANNOT use other servers as this is a local network only.
+
+
+For it to open on pastor.local do this:
+
+macOS/linux:
+open `/etc/hosts`
+do `sudo nano /etc/hosts` and then
+Add:
+<laptop-ip> pastor.local
+
+Save and exit. Then flush DNS cache:
+```
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+```
+Windows:
+Open Notepad as Administrator.
+Open file `C:\Windows\System32\drivers\etc\hosts`
+Add:
+<laptop-ip> pastor.local
+Save the file and exit.
+Flush DNS `ipconfig /flushdns`
